@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    div {
+      border: 2px solid transparent;
+      width: 400px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JStask4</title>
+  </head>
+  <body>
+    <div>
+      <button class="date" id="date">Show date</button>
+      <p id="datelab"></p>
+
+      <button class="date" id="time">Show time</button>
+      <p id="timelab"></p>
+    </div>
+
+    <script>
+      const date = new Date();
+
+      function showDate(date) {
+        const options = {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        };
+
+        const parts = date.toLocaleDateString(undefined, options).split(' ');
+        const day = parts[1];
+        const month = parts[0];
+        const year = parts[2];
+
+        return `${day}/${month}/${year}`;
+      }
+
+      document.getElementById("date").onclick = function () {
+        document.getElementById("datelab").innerHTML = showDate(date);
+      }
+
+      document.getElementById("time").onclick = function () {
+        document.getElementById("timelab").innerHTML = date;
+      }
+    </script>
+  </body>
+</html>
