@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    /* CSS to style the container and buttons */
+    .container {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .train-image {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .content-container {
+        position: absolute;
+        top: 300px;
+        left: 100px;
+        z-index: 1;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+
+<body>
+    <div class="container">
+        <img class="train-image" id="msg" src="train.jpg" alt="Train image">
+    </div>
+    <div class="content-container">
+        <p style="color: blue;">Click the following buttons to handle the animations</p>
+        <button id="start-button">Start</button>
+        <button id="stop-button">Stop</button>
+    </div>
+    <script>
+        // Get the train image element
+        const trainImage = document.querySelector(".train-image");
+
+        // Create a variable to store the animation interval
+        let animationInterval;
+
+        // Create a function to start the animation
+        function startAnimation() {
+            // Set the initial left position to 0px
+            trainImage.style.left = '0px';
+
+            // Set the animation interval to 10 milliseconds
+            animationInterval = setInterval(() => {
+                // Move the train image 1 pixel to the right
+                trainImage.style.left = `${parseInt(trainImage.style.left) + 1}px`;
+                // Log the train image's left position
+                console.log(trainImage.style.left);
+                // Check if the train image has reached the right edge of the screen
+                if (parseInt(trainImage.style.left) + trainImage.offsetWidth >= window.innerWidth) {
+                    // Stop the animation
+                    stopAnimation();
+                }
+            }, 10); // Reduce the interval to make it smoother
+        }
+
+
+        // Create a function to stop the animation
+        function stopAnimation() {
+            // Clear the animation interval
+            clearInterval(animationInterval);
+        }
+
+        // Add event listeners to the Start and Stop buttons
+        document.querySelector("#start-button").addEventListener("click", startAnimation);
+        document.querySelector("#stop-button").addEventListener("click", stopAnimation);
+
+    </script>
+</body>
+
+</html>

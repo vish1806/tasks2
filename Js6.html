@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .outer{
+            border: 2px solid rgba(128, 128, 128, 0.233);
+            width: 350px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.788);
+        }
+        form{
+            display: inline;
+        }
+        .ipfields{
+            width: 200px;
+            height: 30px;
+            border-left: transparent;
+            border-color: rgb(218, 216, 216);
+
+        }
+        button{
+            background-color: rgb(42, 74, 204);
+            width: 220px;
+            height: 30px;
+            color: white;
+        }
+        p{
+            position: relative;
+            left: 70px;
+        }
+        .icons{
+            display: flex inline;
+            background-color: rgb(218, 216, 216);
+            height: 34px;
+            width: 30px;
+            justify-content: center;
+            align-items: center;
+            border-bottom-left-radius: 4px;
+            border-top-left-radius: 4px;
+            margin-right: -3px;
+            
+        }
+        .btmLine{
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JStask6</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+    <body>
+        <div class = "outer">
+            <h1><b><i>Instagram</i></b></h1>
+            <div>
+                <div class = "icons">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                
+                <form action="#">
+                    <input type="text" placeholder="Username" class = "ipfields">
+                </form>
+            </div>
+            <br><br>
+            <div>
+                <div class = "icons">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                
+                <form action="#">
+                    <input type="text" placeholder="Password" class = "ipfields">
+                </form>
+            </div>
+            <br><br>
+            <button type = "button">Log in</button>
+            <br><br>
+            <div class = "btmLine">
+                <span>
+                    <input type="checkbox">
+                <label for="#">Remember me</label>
+                </span>
+                
+                <a href="#">Forgot Password?</a>
+            </div class = "btmLine">
+        </div>
+        <p>Dont have an account! <a href="#">Sign up here.</a></p>
+    </body>
+</html>
