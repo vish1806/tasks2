@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 6</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <style>
+        .error {
+            color: lightsalmon;
+        }
+        
+        body {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 8px;
+        }
+        
+        .btn {
+            background-color:indigo;
+        }
+        
+        .btn-primary {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <form id="myForm" >
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control border" id="name" required />
+                <div id="error1"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control border" id="email" required />
+                <div id="error2"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control border" id="password" required />
+                <div id="error3"></div>
+            </div>
+            <div class="form-group">
+                <label for="hobbies">Hobbies:</label>
+                <select class="form-control" id="hobbies" required>
+                        <option value="">Select a hobby</option>
+                        <option value="reading">Reading</option>
+                        <option value="gardening">Gardening</option>
+                        <option value="painting">Painting</option>
+                    </select>
+                    <div id="error4"></div>
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="validate()">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+    <script>
+        function validate(){
+            const name = document.getElementById('name').value
+            if(name.length==0){
+                document.getElementById('error1').innerHTML = "Name is required";
+                document.getElementById('error1').style.color = "red";
+            }
+            const email = document.getElementById('email').value
+            if(email.length==0){
+                document.getElementById('error2').innerHTML = "Email is required";
+                document.getElementById('error2').style.color = "red";
+            }
+            const password = document.getElementById('password').value
+            if(password.length==0){
+                document.getElementById('error3').innerHTML = "Password is required";
+                document.getElementById('error3').style.color = "red";
+            }
+        }
+    </script>
+</body>
+
+</html> 
