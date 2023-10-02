@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    form {
+      width: 500px;
+      height: 300px;
+      border: 2px solid black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div {
+      margin-bottom: 20px;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JStask3</title>
+  </head>
+  <body>
+    <form action="#">
+      <div>
+        <label for="num1">1st Number: </label>
+        <input type="text" id="val1">
+      </div>
+
+      <div>
+        <label for="num2">2nd Number: </label>
+        <input type="text" id="val2">
+      </div>
+
+      <div>
+        <button id="mul">Multiply</button>
+        <button id="div">Divide</button>
+      </div>
+
+      <div>
+        The Result is:
+        <p id="res"></p>
+      </div>
+    </form>
+
+    <script>
+      let multiplyOp = document.getElementById("mul");
+      let divisionOp = document.getElementById("div");
+
+      multiplyOp.onclick = function () {
+        let num1 = parseFloat(document.getElementById("val1").value);
+        let num2 = parseFloat(document.getElementById("val2").value);
+
+        if (!isNaN(num1) && !isNaN(num2)) {
+          let res = num1 * num2;
+          document.getElementById("res").innerHTML = res;
+        } else {
+          document.getElementById("res").innerHTML = "Please enter valid numbers";
+        }
+      };
+
+      divisionOp.onclick = function () {
+        let num1 = parseFloat(document.getElementById("val1").value);
+        let num2 = parseFloat(document.getElementById("val2").value);
+
+        if (!isNaN(num1) && !isNaN(num2) && num2 !== 0) {
+          let res = num1 / num2;
+          document.getElementById("res").innerHTML = res;
+        } else {
+          document.getElementById("res").innerHTML = "Please enter valid numbers (and make sure the divisor is not zero)";
+        }
+      };
+    </script>
+  </body>
+</html>
