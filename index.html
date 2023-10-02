@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>index</title>
+    </head>
+    <body>
+        <label >Entered String: </label>
+        <input type="text" id="original">
+        <button id = "button">Submit</button>
+        <br>
+        <br>
+        <label>Output: </label>
+        <p id="reversed"></p>
+    </body>
+    <script>
+        document.getElementById("button").onclick = function() {
+            let num = document.getElementById("original").value;
+            let numStr = num.toString();
+
+            // Reverse the characters in the string
+            let reversedString = numStr.split('').reverse().join('');
+
+            // Convert the reversed string back to a number
+            let reversedNumber = parseInt(reversedString);
+
+            document.getElementById("reversed").innerHTML = reversedNumber;
+        };
+    </script>
+</html>
