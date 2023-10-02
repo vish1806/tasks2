@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JStask2</title>
+    </head>
+    <body>
+        <label >Entered String: </label>
+        <input type="text" id="unsorted">
+        <button id = "button">Submit</button>
+        <br>
+        <br>
+        <label>Output: </label>
+        <p id="sorted"></p>
+    </body>
+    <script>
+        function sortAlphabetically() {
+            let word = document.getElementById("unsorted").value;
+
+            // Convert the word to an array of characters
+            let charArray = word.split('');
+
+            // Sort the array alphabetically
+            charArray.sort();
+
+            // Join the sorted characters back into a string
+            let sortedWord = charArray.join('');
+
+            document.getElementById("sorted").innerHTML= sortedWord;
+            }
+            document.getElementById("button").onclick = sortAlphabetically;
+
+    </script>
+</html>
