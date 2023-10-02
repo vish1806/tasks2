@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JStask5</title>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .label {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    .input-field {
+      flex: 2;
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    .error {
+      border: 2px solid red;
+    }
+
+    .error-message {
+      color: red;
+      margin-left: 10px;
+    }
+    .button{
+        position: relative;
+        top: 30px;
+        left: 130px;
+        width: 100px;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <form action="/action_page.php" method="post" onsubmit="return validateForm()">
+    <div class="field-group">
+      <label class="label" for="name">Name:</label>
+      <input type="text" id="name" name="name" class="input-field required">
+      <span id="name-error" class="error-message"></span>
+    </div>
+
+    <div class="field-group">
+      <label class="label" for="email">Email:</label>
+      <input type="email" id="email" name="email" class="input-field required">
+      <span id="email-error" class="error-message"></span>
+    </div>
+
+    <div class="field-group">
+      <label class="label" for="website">Website:</label>
+      <input type="url" id="website" name="website" class="input-field required">
+      <span id="website-error" class="error-message"></span>
+    </div>
+
+    <div class="field-group">
+      <label class="label" for="address">Address:</label>
+      <textarea id="address" name="address" class="input-field required"></textarea>
+      <span id="address-error" class="error-message"></span>
+    </div>
+
+    <input type="submit" value="Submit" class="button">
+  </form>
+  
+</div>
+
+<script>
+  function validateForm() {
+    var name = document.getElementById("name");
+    var email = document.getElementById("email");
+    var website = document.getElementById("website");
+    var address = document.getElementById("address");
+
+    // Check if the name field is required.
+    if (name.value === "") {
+      name.classList.add("error");
+      document.getElementById("name-error").textContent = "This field is required";
+    } else {
+      name.classList.remove("error");
+      document.getElementById("name-error").textContent = "";
+    }
+
+    // Check if the email field is required.
+    if (email.value === "") {
+      email.classList.add("error");
+      document.getElementById("email-error").textContent = "A valid email address is required";
+    } else {
+      email.classList.remove("error");
+      document.getElementById("email-error").textContent = "";
+    }
+
+    // Check if the website field is required.
+    if (website.value === "") {
+      website.classList.add("error");
+      document.getElementById("website-error").textContent = "A valid url is required";
+    } else {
+      website.classList.remove("error");
+      document.getElementById("website-error").textContent = "";
+    }
+
+    // Check if the address field is required.
+    if (address.value === "") {
+      address.classList.add("error");
+      document.getElementById("address-error").textContent = "This field is required";
+    } else {
+      address.classList.remove("error");
+      document.getElementById("address-error").textContent = "";
+    }
+
+    // Prevent the form from submitting if there are any errors.
+    if (
+      name.classList.contains("error") ||
+      email.classList.contains("error") ||
+      website.classList.contains("error") ||
+      address.classList.contains("error")
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+</script>
+</body>
+</html>
